@@ -24,19 +24,21 @@
             <div class="metadat">
             {{ post.createdAt | date('Y-m-d')}} at {{ post.createdAt | date('H:i')}} by John
                 
-                <span class="badge bg-success">Sports</span>
+                <span class="badge bg-success">{{ post.category.title }}</span>
                 5 comment
             </div>
             <div class="content">
                 <img src="https://picsum.photos/seed/picsum/300/200" alt="" class="my-3">
                 <p>{{ post.content }}</p>
-                <a href="#">Read More</a>
+                <a href="{{ path('app_post_show', {'id': post.id}) }}">Read More</a>
             </div>
         </article>
     </section>
 
     {% endfor %}
 
-    
+    <div class="navigation mt-5">
+        {{ knp_pagination_render(posts) }}
+    </div>
 
 {% endblock %}

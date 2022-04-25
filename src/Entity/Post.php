@@ -19,6 +19,11 @@ class Post
     #[ORM\Column(type: 'text')]
     private $content;
 
+    #[ORM\ManyToOne(targetEntity:Category::class, inversedBy:"posts")]
+    private $category;
+
+
+
     #[ORM\Column(type: 'datetime')]
     private $createdAt;
 
@@ -55,5 +60,15 @@ class Post
     public function setCreatedAt($createdAt): void
     {
         $this->createdAt =$createdAt;
+    }
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    public function setCategory($category): void
+    {
+        $this->category= $category;
     }
 }

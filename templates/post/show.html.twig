@@ -18,15 +18,15 @@
 
     <section class="post">
         <article>
-            <h2>Title</h2>
+            <h2>{{ post.title }}</h2>
             <div class="metadat">
-                2021-10-15 at 10:30 by John
-                <span class="badge bg-success">Sports</span>
+                {{ post.createdAt | date('Y-m-d')}} at {{ post.createdAt | date('H:i')}} by John
+                <span class="badge bg-success">{{ post.category.title }}</span>
                 5 comment
             </div>
             <div class="content">
                 <img src="https://picsum.photos/seed/picsum/300/200" alt="" class="my-3">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sint, fuga accusantium expedita et laborum nostrum explicabo porro velit asperiores iure culpa veniam excepturi?</p>
+                <p>{{ post.content }}</p>
                 <a href="#">Read More</a>
             </div>
         </article>
